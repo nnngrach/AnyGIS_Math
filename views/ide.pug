@@ -1,0 +1,110 @@
+extends layout
+
+block content
+  h1 AnyGIS Math - Web IDE
+  p.lead Редактор для создания пресетов подключения к онлайн-картам.
+
+
+  form.form-horizontal(method='GET')
+    input(type='hidden', name='_csrf', value=_csrf)
+
+    .form-group.row.justify-content-md-center
+      label.col-sm-1.col-form-label.text-right.font-weight-bold(for='X') X
+      .col-sm-8
+        input.form-control(type='text', name='X', id='X', autofocus=true)
+
+    .form-group.row.justify-content-md-center
+      label.col-sm-1.col-form-label.text-right.font-weight-bold(for='Y') Y
+      .col-sm-8
+        input.form-control(type='text', name='Y', id='Y')
+
+    .form-group.row.justify-content-md-center
+      label.col-sm-1.col-form-label.text-right.font-weight-bold(for='Z') Z
+      .col-sm-8
+        input.form-control(type='text', name='Z', id='Z')
+
+    .form-group.row.justify-content-md-center
+      label.col-sm-1.col-form-label.text-right.font-weight-bold(for='URL') URL
+      .col-sm-8
+        textarea.form-control(name='URL', id='URL', rows='2')
+
+    .form-group.row.justify-content-md-center
+      label.col-sm-1.col-form-label.text-right.font-weight-bold(for='ServerNames') Server names
+      .col-sm-8
+        input.form-control(type='text', name='ServerNames', id='ServerNames')
+
+    .form-group.row.justify-content-md-center
+      label.col-sm-1.col-form-label.text-right.font-weight-bold(for='Referer') Referer
+      .col-sm-8
+        input.form-control(type='text', name='Referer', id='Referer')
+
+    .form-group.row.justify-content-md-center
+      label.col-sm-1.col-form-label.text-right.font-weight-bold(for='MinZoom') Min Zoom
+      .col-sm-8
+        input.form-control(type='text', name='MinZoom', id='MinZoom')
+
+    .form-group.row.justify-content-md-center
+      label.col-sm-1.col-form-label.text-right.font-weight-bold(for='MaxZoom') Max Zoom
+      .col-sm-8
+        input.form-control(type='text', name='MaxZoom', id='MaxZoom')
+
+    .form-group.row.justify-content-md-center
+      label.col-sm-1.col-form-label.text-right.font-weight-bold(for='Scripts') Scripts
+      .col-sm-8
+        textarea.form-control(name='Scripts', id='Scripts', rows='7')
+
+
+    .form-group.row.justify-content-md-center
+      .offset-sm-1.col-sm-8
+        button.btn.btn-primary(type='button', onclick='check()')
+          i.fa.fa-envelope
+          | Проверить
+
+
+
+    //div(id="HttpRes")
+
+    p(id="httpRes" align="center")
+      img(id="TileImage", src="/images/httpError.png")
+
+
+    //p(id="httpRes")
+    //  img(id="TileImage", src="https://b.tile.thunderforest.com/cycle/0/0/0.png?apikey=6170aad10dfd42a38d4d8c709a536f38")
+    //  | Http:200
+
+
+    //p
+    //  img(id="Image", src="https://b.tile.thunderforest.com/cycle/0/0/0.png?apikey=6170aad10dfd42a38d4d8c709a536f38")
+    //  | div(id='HttpResp') Http_Code:200
+
+
+
+
+    script(src='/js/ideScripts.js')
+
+
+
+  //form(action='/math', method='GET')
+  //  p
+  //    | X:
+  //    input(type='text', name='x', value='')
+  //    |          Y:
+  //    input(type='text', name='y', value='')
+  //    |          Z:
+  //    input(type='text', name='z', value='')
+  //  |
+  //  p
+  //
+  //  | URL адрес с {плейсхолдерами}:
+  //  p
+  //    input(type='text', name='script', value='')
+  //  p
+  //
+  //  | Scripts:
+  //  p
+  //    input(type='text', name='script', value='')
+  //  p
+  //
+  //a.btn.btn-secondary(onclick='console.log("Hello")', role='button') Проверить »
+
+

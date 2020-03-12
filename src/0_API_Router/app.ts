@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import path from "path";
 
 // Controllers (route handlers)
-import * as homeSubRouter from "../1_Sub_Routers/home";
+import * as ideRouter from "../1_Sub_Routers/ideRouter";
 
 
 // Create Express server
@@ -33,7 +33,7 @@ app.use(
 /**
  * API Router
  */
-app.get("/", homeSubRouter.index);
+app.get("/", ideRouter.index);
 
 
 // app.get("/auth/facebook", passport.authenticate("facebook", { scope: ["email", "public_profile"] }));
