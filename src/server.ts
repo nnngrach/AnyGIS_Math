@@ -1,22 +1,9 @@
-import errorHandler from "errorhandler";
+import App from "./0_API_Router/app";
 
-import app from "./0_API_Router/app";
+const port = Number(process.env.PORT || 3000);
+const app = new App(port);
+// const app = App.getInstance();
+// app.expresApp.listen();
+app.listen();
 
-/**
- * Error Handler. Provides full stack - remove for production
- */
-app.use(errorHandler());
 
-/**
- * Start Express server.
- */
-const server = app.listen(app.get("port"), () => {
-    console.log(
-        "  App is running at http://localhost:%d in %s mode",
-        app.get("port"),
-        app.get("env")
-    );
-    console.log("  Press CTRL-C to stop\n");
-});
-
-export default server;
