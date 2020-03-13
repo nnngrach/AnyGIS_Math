@@ -4,9 +4,9 @@ const app = new AgApp(3000);
 const expressApp = app.expressApp;
 
 
-describe("GET /random-url", () => {
-    it("should return 404", (done) => {
-        request(expressApp).get("/reset")
-            .expect(404, done);
+describe("GET /", () => {
+    it("should return 200 OK", (done) => {
+        request(expressApp).get("/")
+            .expect(200, done);
     });
 });

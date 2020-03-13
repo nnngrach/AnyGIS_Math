@@ -1,5 +1,5 @@
-type tileNumbers = {x: string, y: string, z: string};
-type mathDto = {tileNumbers: tileNumbers, urlTemplate: string, serverNames: string, scripts: string};
+type tileNumbers = {x: string; y: string; z: string};
+type mathDto = {tileNumbers: tileNumbers; urlTemplate: string; serverNames: string; scripts: string};
 
 const xID = "X";
 const yID = "Y";
@@ -24,22 +24,8 @@ let sValue = "a;b;c";
 let scriptsValue = "";
 // let processedImageUrl = "https://a.tile.opentopomap.org/1/1/1.png";             //(?)
 //let processedImageUrl = "https://a.tile.opentopoMMMap.org/1/1/1.png";             //(?)
-let processedImageUrl = "https://heatmap-external-b.strava.com/tiles-auth/run/hot/8/164/77.png?px=256";             //(?)
-let httpResValue = "";
-
-
-
-
-// ***
-// * Click for Check button
-// ***
-
-function checkIt(): void {
-    console.log("Checking...");
-
-    fetchUIValues();
-    changeImage();
-}
+const processedImageUrl = "https://heatmap-external-b.strava.com/tiles-auth/run/hot/8/164/77.png?px=256";             //(?)
+const httpResValue = "";
 
 
 
@@ -57,6 +43,7 @@ function updateUIValues(): void {
     document.getElementById(urlID).textContent = urlTemplateValue;
     document.getElementById(scriptsID).textContent = scriptsValue;
 }
+
 
 
 
@@ -84,6 +71,19 @@ function fetchUIValues(): void {
 // * Replace tile image and text with Html status code
 // ***
 
+function mathUrlTemplate(mathDto: mathDto): string {
+    return "processed URL Mock";
+}
+
+function getImageHttpStatus(imageUrl: string): string {
+    return "image Html status Mock";
+}
+
+function replaceImageHtml(imageUrl: string, httpStatusText: string): void {
+    //document.getElementById(httpResDivID).innerHTML = '<img src="' + processedImageUrl + '">';
+    document.getElementById(httpResDivID).innerHTML = "<img src=\"" + imageUrl + "\">" + httpStatusText;
+}
+
 function changeImage(): void {
     const dto: mathDto = {tileNumbers: {x: xValue, y: yValue, z: zValue},  urlTemplate: urlTemplateValue, serverNames: sValue, scripts: scriptsValue};
     const processedUrl = mathUrlTemplate(dto);
@@ -91,20 +91,20 @@ function changeImage(): void {
     replaceImageHtml(processedUrl, httpStatusText);
 }
 
-function mathUrlTemplate(mathDto: mathDto): string {
-    return "processed URL Mock"
+
+
+
+
+// ***
+// * Click for Check button
+// ***
+
+function checkIt(): void {
+    console.log("Checking...");
+
+    fetchUIValues();
+    changeImage();
 }
-
-function getImageHttpStatus(imageUrl: string): string {
-    return "image Html status Mock"
-}
-
-function replaceImageHtml(imageUrl: string, httpStatusText: string): void {
-    //document.getElementById(httpResDivID).innerHTML = '<img src="' + processedImageUrl + '">';
-    document.getElementById(httpResDivID).innerHTML = '<img src="' + imageUrl + '">' + httpStatusText;
-}
-
-
 
 
 
