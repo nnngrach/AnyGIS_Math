@@ -1,5 +1,4 @@
-type tileNumbers = {x: string; y: string; z: string};
-type mathDto = {tileNumbers: tileNumbers; urlTemplate: string; serverNames: string; scripts: string};
+type mathDTO = {tileNumbers: {x: string; y: string; z: string}; urlTemplate: string; serverNames: string; scripts: string};
 
 const mathProcessorUrl = "/math/";
 const httpStatusCheckerUrl = "/helpers/head/";
@@ -75,7 +74,7 @@ function base64ToJson(text: string): object {
 // * IDE Http requests
 // ***
 
-function httpGetProcessedURL(mathParamsDto: mathDto): string {
+function httpGetProcessedURL(mathParamsDto: mathDTO): string {
     const dtoAsBase64 = jsonToBase64(mathParamsDto);
     const requestUrl = mathProcessorUrl +  dtoAsBase64;
     return httpGetResponseText(requestUrl);
@@ -131,7 +130,7 @@ function replaceHtmlForTileImageAndStatusCode(imageUrl: string, httpStatusText: 
 // ***
 
 function changeImage(): void {
-    const dto: mathDto = {tileNumbers: {x: xValue, y: yValue, z: zValue},  urlTemplate: urlTemplateValue, serverNames: sValue, scripts: scriptsValue};
+    const dto: mathDTO = {tileNumbers: {x: xValue, y: yValue, z: zValue},  urlTemplate: urlTemplateValue, serverNames: sValue, scripts: scriptsValue};
     const processedTileUrl = httpGetProcessedURL(dto);
     const tileLoadingHttpStatusText = httpGetTileStatusCode(processedTileUrl);
     replaceHtmlForTileImageAndStatusCode(processedTileUrl, tileLoadingHttpStatusText);
@@ -157,4 +156,4 @@ function checkTileDownloadingWithUIParametes(): void {
 // ***
 
 setUIDefaultValues();
-changeImage();
+// changeImage();

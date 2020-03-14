@@ -1,5 +1,6 @@
 import express from "express";
 
+import AgHttpError  from "../utils/agHttpError";
 import AgHttpHeadController from "../1_Controlles/agHttpHandlerController";
 import AgMathController from "../1_Controlles/agMathController";
 
@@ -62,9 +63,13 @@ class AgApp {
             const urlInBase64: string = req.params.urlInBase64;
             if (!urlInBase64) {return res.status(400).send("Wrong URL parameters");}
 
-            const result =  this.agMathController.processUrlTemplate(urlInBase64);
-
-            res.status(200).send(result);
+            try {
+                const result =  this.agMathController.processUrlTemplate(urlInBase64);
+                res.status(200).send(result);
+            } catch (e) {
+                const error = e as AgHttpError;
+                res.status(error.statusCode).send(error.message);
+            }
         });
 
     }

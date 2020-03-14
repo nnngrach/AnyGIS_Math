@@ -1,5 +1,7 @@
-import { Base64 } from "js-base64";
+//import { Base64 } from "js-base64";
+import AgDecoder from "../utils/agDecoder";
 import AgHttpHandlerWorker from "../2_Services/agHttpHandlerWorker";
+
 
 
 
@@ -13,7 +15,13 @@ class AgHttpHandlerController {
     }
 
     public async head(base64Url: string): Promise<string> {
-        const checkingUrl = Base64.decode(base64Url);
+
+        console.log("base64Url - ", base64Url);
+        //const checkingUrl = Base64.decode(base64Url);
+        const checkingUrl = AgDecoder.base64ToString(base64Url);
+
+        console.log("checkingUrl - ", checkingUrl);
+
         return await this.agHttpHandlers.head(checkingUrl);
     }
 
