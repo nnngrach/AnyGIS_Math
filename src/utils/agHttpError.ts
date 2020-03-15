@@ -1,4 +1,4 @@
-export default class AgHttpError extends Error {
+class AgHttpError extends Error {
     statusCode: number;
 
     constructor(statusCode: number, message: string) {
@@ -6,3 +6,6 @@ export default class AgHttpError extends Error {
         this.statusCode = statusCode;
     }
 }
+
+
+export default AgHttpError;
