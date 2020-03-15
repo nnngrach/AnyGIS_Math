@@ -19,6 +19,9 @@ class AgHttpHandlerWorker {
     }
 
 
+
+    // TODO: Http proxy (get with referer)
+
 }
 
 

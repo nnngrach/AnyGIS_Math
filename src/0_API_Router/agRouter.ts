@@ -62,7 +62,7 @@ class AgRouter {
         });
 
 
-        this.expressApp.get("/math/:urlInBase64", (req, res) => {
+        this.expressApp.get("/math/url/:urlInBase64", (req, res) => {
 
             const urlInBase64: string = req.params.urlInBase64;
             if (!urlInBase64) {return res.status(400).send("Wrong URL parameters");}
@@ -75,6 +75,10 @@ class AgRouter {
                 res.status(error.statusCode).send(error.message);
             }
         });
+
+
+        // TODO: Get Tile
+
 
     }
 

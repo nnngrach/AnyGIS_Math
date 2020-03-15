@@ -1,6 +1,6 @@
 type mathDTO = {tileNumbers: {x: string; y: string; z: string}; urlTemplate: string; serverNames: string; scripts: string};
 
-const mathProcessorUrl = "/math/";
+const mathProcessorUrl = "/math/url/";
 const httpStatusCheckerUrl = "/helpers/head/";
 
 
