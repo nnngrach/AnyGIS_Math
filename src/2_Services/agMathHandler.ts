@@ -87,10 +87,9 @@ class AgMathHandler {
 
     
     // Coordinates processing
-
     public latlonToTileNum(lat: number, lon: number, z: number): TileNumbers {
-        const xTile = Math.floor( (lon + 180) / 360 * Math.pow(z,2) );
-        const yTile = Math.floor( 1 - Math.log( Math.tan( lat * Math.PI / 180 ) + 1 / Math.cos( lat * Math.PI / 180 )) / Math.PI ) / 2 * Math.pow( 2, z );
+        const xTile = Math.floor( (lon + 180) / 360 * Math.pow(2,z) );
+        const yTile = Math.floor( (1 - Math.log( Math.tan(lat * Math.PI / 180) + 1 / Math.cos(lat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, z)  );
         return {x: xTile, y: yTile, z: z};
     }
 
@@ -102,4 +101,4 @@ class AgMathHandler {
     }
 }
 
-export default  AgMathHandler;
+export default AgMathHandler;

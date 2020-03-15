@@ -4,7 +4,7 @@
     "description": "Utility for transformation URL of online-maps servers",
     "repository": {
         "type": "git",
-        "url": "https://github.com/nnngrach"
+        "url": "https://github.com/nnngrach/AnyGIS_Math"
     },
     "author": "nnngrach",
     "scripts": {
@@ -27,7 +27,6 @@
         "test": "jest --forceExit --coverage --verbose"
     },
     "dependencies": {
-        "@types/js-base64": "^2.3.1",
         "async": "^3.1.0",
         "axios": "^0.19.2",
         "babel-preset-env": "^1.7.0",
@@ -80,6 +79,7 @@
         "@types/winston": "^2.4.4",
         "@typescript-eslint/eslint-plugin": "^2.3.1",
         "@typescript-eslint/parser": "^2.3.1",
+        "@types/js-base64": "^2.3.1",
         "chai": "^4.2.0",
         "concurrently": "^5.0.0",
         "eslint": "^6.4.0",

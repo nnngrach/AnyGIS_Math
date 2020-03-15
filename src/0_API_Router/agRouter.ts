@@ -5,7 +5,7 @@ import AgHttpHeadController from "../1_Controlles/agHttpHandlerController";
 import AgMathController from "../1_Controlles/agMathController";
 
 
-class AgApp {
+class AgRouter {
 
     expressApp = express();
     port = 3000;
@@ -20,6 +20,7 @@ class AgApp {
     }
 
 
+
     private setupApiRouter() {
 
         // Index - IDE web page
@@ -27,6 +28,7 @@ class AgApp {
         this.expressApp.get("/", (req, res) => {
             res.render("ide", {title: "Web IDE"});
         });
+
 
 
 
@@ -51,6 +53,7 @@ class AgApp {
 
 
 
+
         // URL templates Math transforming module
 
         this.expressApp.get("/math", (req, res) => {
@@ -60,6 +63,7 @@ class AgApp {
 
 
         this.expressApp.get("/math/:urlInBase64", (req, res) => {
+
             const urlInBase64: string = req.params.urlInBase64;
             if (!urlInBase64) {return res.status(400).send("Wrong URL parameters");}
 
@@ -76,4 +80,5 @@ class AgApp {
 
 }
 
-export default AgApp;
+
+export default AgRouter;

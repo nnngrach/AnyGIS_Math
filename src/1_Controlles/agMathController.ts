@@ -1,12 +1,7 @@
-// import { Base64 } from "js-base64";
-
+import { MathDto, TileNumbers } from "../3_Models/agTypes";
 import AgDecoder from "../utils/agDecoder";
 import AgHttpError  from "../utils/agHttpError";
-
-import { MathDto, TileNumbers } from "../3_Models/agTypes";
 import AgMathHandler from "../2_Services/agMathHandler";
-
-
 
 
 
@@ -29,17 +24,14 @@ class AgMathController {
         }
 
 
-
         const dto = decodedJsonObject as MathDto;
 
-        // Если x y содержат точку, то распарсить их как latLon и сконвертировать в номера тайла
-
+        // latlon to tile numvers if it needed
+        const checkedTileNumbers = this.parseCoordinates(dto.tileNumbers);
+        dto.tileNumbers = checkedTileNumbers;
 
         const result = this.agMathHandler.replaceAllPlaceholders(dto);
-
         return result;
-
-        // return "https://a.tile.opentopomap.org/1/1/0.png";
     }
 
 
@@ -73,21 +65,18 @@ class AgMathController {
 
             const lat = parseFloat(obj.x);
             const lon = parseFloat(obj.y);
-            const z = parseInt(obj.tileNumbers.z, 10);
-
+            const z = parseInt(obj.z, 10);
             return this.agMathHandler.latlonToTileNum(lat,  lon, z);
 
         } else {
 
             return {
-                x: parseInt(obj.tileNumbers.x, 10),
-                y: parseInt(obj.tileNumbers.y, 10),
-                z: parseInt(obj.tileNumbers.z, 10)
+                x: parseInt(obj.x, 10),
+                y: parseInt(obj.y, 10),
+                z: parseInt(obj.z, 10)
             };
         }
     }
-
-
 
 }
 
