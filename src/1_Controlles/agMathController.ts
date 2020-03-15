@@ -78,6 +78,15 @@ class AgMathController {
         }
     }
 
+
+
+    //TODO: add Get Tile function
+    // public getTile() {
+    //
+    // }
+
+
+
 }
 
 export default  AgMathController;

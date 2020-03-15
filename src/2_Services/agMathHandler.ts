@@ -64,12 +64,12 @@ class AgMathHandler {
         const top = yPlanetDistance/ tileCountsPerZoom * (tileNumbers.y) - yPlanetDistance / 2;
         const bottom = yPlanetDistance/ tileCountsPerZoom * (tileNumbers.y + 1) - yPlanetDistance / 2;
 
-        return `${ left },-${ bottom },${ right },-${ top },`;
+        return `${ left },${ -bottom },${ right },${ -top }`;
     }
     
 
 
-
+    // TODO: add QuadKey converter
     // private getQuadKey(tileNumbers: TileNumbers) {
     //
     // }
@@ -78,12 +78,12 @@ class AgMathHandler {
 
 
 
-
+    // Functions with TimeStamp
     private getTimestamp(): string {
         return String(Date.now());
     }
 
-
+    // TODO: add timestams fo last 10 minutes, 30, 60, day, month, and all months of the yesr
 
     
     // Coordinates processing

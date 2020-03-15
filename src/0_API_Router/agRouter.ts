@@ -3,6 +3,7 @@ import express from "express";
 import AgHttpError  from "../utils/agHttpError";
 import AgHttpHeadController from "../1_Controlles/agHttpHandlerController";
 import AgMathController from "../1_Controlles/agMathController";
+import AgGetTileFacade from "../1_Controlles/agGetTileFacade";
 
 
 class AgRouter {
@@ -13,6 +14,7 @@ class AgRouter {
     // Sub modules
     agHttpHeadController = new AgHttpHeadController();
     agMathController = new AgMathController();
+    agGetTileFacade = new AgGetTileFacade();
 
 
     constructor() {
@@ -77,7 +79,22 @@ class AgRouter {
         });
 
 
-        // TODO: Get Tile
+
+
+        // TODO: add  Get Tile method
+        this.expressApp.get("/math/:urlInBase64", (req, res) => {
+
+            const urlInBase64: string = req.params.urlInBase64;
+            if (!urlInBase64) {return res.status(400).send("Wrong URL parameters");}
+
+            try {
+                const result =  this.agGetTileFacade.getTile(urlInBase64);
+                res.status(200).send(result);
+            } catch (e) {
+                const error = e as AgHttpError;
+                res.status(error.statusCode).send(error.message);
+            }
+        });
 
 
     }
