@@ -43,7 +43,7 @@
         "fbgraph": "^1.4.4",
         "js-base64": "^2.5.2",
         "lodash": "^4.17.15",
-        "pug": "^2.0.4",
+        "pug": "^3.0.1",
         "winston": "^3.2.1"
     },
     "devDependencies": {
