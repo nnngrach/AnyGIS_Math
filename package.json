@@ -42,7 +42,7 @@
         "express-validator": "^6.2.0",
         "fbgraph": "^1.4.4",
         "js-base64": "^2.5.2",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.21",
         "pug": "^2.0.4",
         "winston": "^3.2.1"
     },
