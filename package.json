@@ -27,7 +27,7 @@
         "test": "jest --forceExit --coverage --verbose"
     },
     "dependencies": {
-        "async": "^3.1.0",
+        "async": "^3.2.2",
         "axios": "^0.19.2",
         "babel-preset-env": "^1.7.0",
         "bcrypt-nodejs": "^0.0.3",
